@@ -1,11 +1,9 @@
-import React from 'react'
 
 const About = () => {
   return (
   <>
-    <div>
-      hello faria
-    </div>
+    
+    <h1>hello faria</h1>
   </>
   )
 }

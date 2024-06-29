@@ -1,70 +1,68 @@
-import React from 'react'
-import { Link ,NavLink} from 'react-router-dom'
-import { FcHome } from "react-icons/fc";
-import { RiContactsLine } from "react-icons/ri";
-import { MdOutlineContactPage } from "react-icons/md";
-import { PiShoppingBagOpen } from "react-icons/pi";
-import { TbBrandBlogger } from "react-icons/tb";
-import { RiContactsBookLine } from "react-icons/ri";
-import { IoMoonOutline } from "react-icons/io5";
+
+import React, { useState } from 'react'
+import { NavLink, Link } from 'react-router-dom'
+import { IoHomeOutline } from "react-icons/io5";
+import { IoPersonOutline } from "react-icons/io5";
+import { IoDocumentTextOutline } from "react-icons/io5";
+import { BiBriefcase } from "react-icons/bi";
+import { FaBlogger } from "react-icons/fa";
+import { RiContactsBook3Line } from "react-icons/ri";
+import { FaBarsProgress } from "react-icons/fa6";
+import { HiOutlineMoon } from "react-icons/hi2";
+
+
 
 
 const Navbar = () => {
+    const [show, setShow]=useState(false)
+
+    const handleShow=()=>{
+        setShow(!show)
+    }
+
+
   return (
-   <>
+    <>
+        <nav>
+            <div className="container">
+                <div className="menu_row p-5 flex justify-between flex-wrap">
+                    <div className="logo_col">
+                       <Link to="#" >  <img src="images/logo.png" alt="logo" /></Link>
+                    </div>
+                    <div className="menu relative">
+                        <FaBarsProgress onClick={handleShow} className='text-xl md:hidden'/>
+                        {
+                            show&&
+                            <ul className='flex flex-col items-center gap-4 text-[13px] font-poppins font-medium text-inherit absolute right-3 top-[120%]'>
+                                <li><NavLink to='/' className={({ isActive }) => isActive? 'gap-[3px] px-[19px] bg-gradient-to-r from-[#fa5252] to-[#dd2476] ... h-10 flex justify-center items-center rounded-lg':'gap-[3px] px-[19px] bg-[#fff] h-10 flex justify-center items-center rounded-lg'}><IoHomeOutline className='text-xl' />Home</NavLink></li>
+                                <li><NavLink to='/about' className={({ isActive }) => isActive? 'gap-[3px] px-[19px] bg-gradient-to-r from-[#fa5252] to-[#dd2476] ... h-10 flex justify-center items-center rounded-lg':'gap-[3px] px-[19px] bg-[#fff] h-10 flex justify-center items-center rounded-lg'}><IoPersonOutline className='text-xl' />About</NavLink></li>
+                                <li><NavLink to='/resume' className={({ isActive }) => isActive? 'gap-[3px] px-[19px] bg-gradient-to-r from-[#fa5252] to-[#dd2476] ... h-10 flex justify-center items-center rounded-lg':'gap-[3px] px-[19px] bg-[#fff] h-10 flex justify-center items-center rounded-lg'}><IoDocumentTextOutline className='text-xl' />Resume</NavLink></li>
+                                <li><NavLink to='/work' className={({ isActive }) => isActive? 'gap-[3px] px-[19px] bg-gradient-to-r from-[#fa5252] to-[#dd2476] ... h-10 flex justify-center items-center rounded-lg':'gap-[3px] px-[19px] bg-[#fff] h-10 flex justify-center items-center rounded-lg'}><BiBriefcase className='text-xl' />Works</NavLink></li>
+                                <li><NavLink to='/blog' className={({ isActive }) => isActive? 'gap-[3px] px-[19px] bg-gradient-to-r from-[#fa5252] to-[#dd2476] ... h-10 flex justify-center items-center rounded-lg':'gap-[3px] px-[19px] bg-[#fff] h-10 flex justify-center items-center rounded-lg'}><FaBlogger className='text-xl' />Blog</NavLink></li>
+                                <li><NavLink to='/contact' className={({ isActive }) => isActive? 'gap-[3px] px-[19px] bg-gradient-to-r from-[#fa5252] to-[#dd2476] ... h-10 flex justify-center items-center rounded-lg':'gap-[3px] px-[19px] bg-[#fff] h-10 flex justify-center items-center rounded-lg'}><RiContactsBook3Line className='text-xl' />Contact</NavLink></li>
+                                <li><NavLink to='/' className={({ isActive }) => isActive? 'gap-[3px] px-[19px] bg-gradient-to-r from-[#fa5252] to-[#dd2476] ... h-10 flex justify-center items-center rounded-lg':'gap-[3px] px-[19px] bg-[#fff] h-10 flex justify-center items-center rounded-lg'}><HiOutlineMoon  className='text-xl' /></NavLink></li>
 
-  <nav className= ""> 
- <div className="container">
-    <div className="menu_row p-5 flex justify-between flex-wrap">
-    <div className="logo_col">
-   <Link to="#" >  <img src="images/logo.png" alt="logo" /></Link>
-    </div>
-    <div className="menu">
-        <ul className='flex flex-wrap gap-5 text-[13px] font-poppins font-medium text-inherit'>
-           
-        <NavLink
-     to="Home"
-     className={({ isActive }) => isActive ? "gap-[3px] bg- bg-purple-700 bg-red-500 px-[19px] h-10 flex justify-center items-center rounded-lg"
-     : "gap-[3px] px-[19px] bg-white h-10 flex justify-center items-center rounded-lg" }><FcHome className='text-xl'/>Home</NavLink>
-  <NavLink
-     to="About"
-     className={({ isActive }) => isActive ? "gap-[3px] bg- bg-purple-700 bg-red-500 px-[19px] h-10 flex justify-center items-center rounded-lg"
-     : "gap-[3px] px-[19px] bg-white h-10 flex justify-center items-center rounded-lg" }><RiContactsLine className='text-xl'/>About</NavLink>
-  <NavLink
-     to="Resume"
-     className={({ isActive }) => isActive ? "gap-[3px] bg- bg-purple-700 bg-red-500 px-[19px] h-10 flex justify-center items-center rounded-lg"
-     : "gap-[3px] px-[19px] bg-white h-10 flex justify-center items-center rounded-lg" }><MdOutlineContactPage className='text-xl'/>Resume</NavLink>
-  
-  <NavLink
-     to="works"
-     className={({ isActive }) => isActive ? "gap-[3px] bg- bg-purple-700 bg-red-500 px-[19px] h-10 flex justify-center items-center rounded-lg"
-     : "gap-[3px] px-[19px] bg-white h-10 flex justify-center items-center rounded-lg" }><PiShoppingBagOpen className='text-xl'/>Works</NavLink>
-  
-  <NavLink
-     to="Blogs"
-     className={({ isActive }) => isActive ? "gap-[3px] bg- bg-purple-700 bg-red-500 px-[19px] h-10 flex justify-center items-center rounded-lg"
-     : "gap-[3px] px-[19px] bg-white h-10 flex justify-center items-center rounded-lg" }><TbBrandBlogger className='text-xl'/>Blogs</NavLink>
-  
-  <NavLink
-     to="Contact"
-     className={({ isActive }) => isActive ? "gap-[3px] bg- bg-purple-700 bg-red-500 px-[19px] h-10 flex justify-center items-center rounded-lg"
-     : "gap-[3px] px-[19px] bg-white h-10 flex justify-center items-center rounded-lg" }><RiContactsBookLine className='text-xl'/>Contact</NavLink>
-  
-  <NavLink
-     to=""
-     className={({ isActive }) => isActive ? "gap-[3px] bg- bg-purple-700 bg-red-500 px-[19px] h-10 flex justify-center items-center rounded-lg"
-     : "gap-[3px] px-[19px] bg-white h-10 flex justify-center items-center rounded-full" }>< IoMoonOutline /></NavLink>
-  
+                            </ul>                      
+                        }
+                        <div className='hidden md:block'>
+                            <ul className='flex gap-4 text-[13px] font-poppins font-medium text-inherit '>
+                                <li><NavLink to='/' className={({ isActive }) => isActive? 'gap-[3px] px-[19px] bg-gradient-to-r from-[#fa5252] to-[#dd2476] ... h-10 flex justify-center items-center rounded-lg':'gap-[3px] px-[19px] bg-[#fff] h-10 flex justify-center items-center rounded-lg'}><IoHomeOutline className='text-xl' />Home</NavLink></li>
+                                <li><NavLink to='/about' className={({ isActive }) => isActive? 'gap-[3px] px-[19px] bg-gradient-to-r from-[#fa5252] to-[#dd2476] ... h-10 flex justify-center items-center rounded-lg':'gap-[3px] px-[19px] bg-[#fff] h-10 flex justify-center items-center rounded-lg'}><IoPersonOutline className='text-xl' />About</NavLink></li>
+                                <li><NavLink to='/resume' className={({ isActive }) => isActive? 'gap-[3px] px-[19px] bg-gradient-to-r from-[#fa5252] to-[#dd2476] ... h-10 flex justify-center items-center rounded-lg':'gap-[3px] px-[19px] bg-[#fff] h-10 flex justify-center items-center rounded-lg'}><IoDocumentTextOutline className='text-xl' />Resume</NavLink></li>
+                                <li><NavLink to='/work' className={({ isActive }) => isActive? 'gap-[3px] px-[19px] bg-gradient-to-r from-[#fa5252] to-[#dd2476] ... h-10 flex justify-center items-center rounded-lg':'gap-[3px] px-[19px] bg-[#fff] h-10 flex justify-center items-center rounded-lg'}><BiBriefcase className='text-xl' />Works</NavLink></li>
+                                <li><NavLink to='/blog' className={({ isActive }) => isActive? 'gap-[3px] px-[19px] bg-gradient-to-r from-[#fa5252] to-[#dd2476] ... h-10 flex justify-center items-center rounded-lg':'gap-[3px] px-[19px] bg-[#fff] h-10 flex justify-center items-center rounded-lg'}><FaBlogger className='text-xl' />Blog</NavLink></li>
+                                <li><NavLink to='/contact' className={({ isActive }) => isActive? 'gap-[3px] px-[19px] bg-gradient-to-r from-[#fa5252] to-[#dd2476] ... h-10 flex justify-center items-center rounded-lg':'gap-[3px] px-[19px] bg-[#fff] h-10 flex justify-center items-center rounded-lg'}><RiContactsBook3Line className='text-xl' />Contact</NavLink></li>
+                                <li><NavLink to='/' className={({ isActive }) => isActive? 'gap-[3px] px-[19px] bg-gradient-to-r from-[#fa5252] to-[#dd2476] ... h-10 flex justify-center items-center rounded-lg':'gap-[3px] px-[19px] bg-[#fff] h-10 flex justify-center items-center rounded-lg'}><HiOutlineMoon  className='text-xl' /></NavLink></li>
 
-
-
- </ul> 
-    </div>
-    </div>
- </div>
-  </nav>
-
-   </>
+                            </ul>                          
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+    </>
   )
 }
 

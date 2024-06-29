@@ -4,10 +4,10 @@ import './App.css'
 import Home from './Pages/Home'
 import About from './Pages/About'
 import Resume from './Pages/Resume'
-import Works from './Pages/Works'
 import Contact from './Pages/Contact'
-import Blogs from './Pages/Blogs'
+import Blog from './Pages/Blog'
 import LayoutOne from './Layout/LayoutOne'
+import Work from './Pages/Work'
 
 
 function App() {
@@ -16,11 +16,11 @@ function App() {
 <Route>
 
  <Route path='/' element = {<LayoutOne/>}>
- <Route path='/home' element = {<Home/>} />
+  <Route index element = {<Home/>} />
   <Route path='/About' element ={<About/>} />
-  <Route path='/resume' element ={<Resume/>} /> 
-  <Route path='/works' element ={<Works/>} />
-  <Route path='/blogs' element = {<Blogs/>} />
+  <Route path='/resume' element ={<Resume/>} />
+  <Route  path='/work' element = {<Work/>} />
+  <Route path='/blog' element = {<Blog/>} />
   <Route path='/contact' element ={<Contact/>} />
   
 </Route>
